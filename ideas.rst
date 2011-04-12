@@ -387,7 +387,7 @@ have::
     [...]
 
 And if you want to trigger a local build of that package instead of
-using an available binary, you change it and rebuild:
+using an available binary, you change it and rebuild::
 
     [...]
     (cfitsio {stdenv=gen3.stdenv}),
