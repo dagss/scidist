@@ -405,8 +405,8 @@ Ticket #6: Soft run-time dependencies
 
 With Python packages, it is often the case that you depend on another
 package at run-time only. Adding the package as a hard run-time
-dependency is pointless; it would trigger a rebuild, but we know the
-result will be the same.
+dependency is overkill; it would trigger a rebuild whenever the
+dependency changes, but we know the result will be the same.
 
 So perhaps we need something to say "if you install ``joblib``, you
 want ``argparse`` as well, even if there is no explicit dependency in
