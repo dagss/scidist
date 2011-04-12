@@ -375,7 +375,25 @@ Here's a way to do it:
 
    Here, ``cfitsio`` and ``python2.7`` were installed first, then the
    host ``gcc`` was upgraded (resulting in a new host-generation being
-   created), and then 
+   created), and then  finally ``healpix`` was installed.
+
+This also solves the problem with distributing binary packages. It
+is OK to ship the "host-expressions" from one computer to another
+as long as nothing triggers them to build. So, you could
+have::
+
+    [...]
+    (cfitsio {stdenv=sageBuildFarm34.stdenv}),
+    [...]
+
+And if you want to trigger a local build of that package instead of
+using an available binary, you change it and rebuild:
+
+    [...]
+    (cfitsio {stdenv=gen3.stdenv}),
+    [...]
+
+
 
 Ticket #5: Downloadable package/bootstrap scripts
 '''''''''''''''''''''''''''''''''''''''''''''''''
