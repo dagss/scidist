@@ -49,7 +49,7 @@ scientific distribution (of course, you'd still track a stable and
 tested upstream!), I feel 2-4 is almost solved, or at least it'll be a
 very decent foundation to build a few utility scripts on.
 
-Before I start ramblinga about Nix, here's some things I evaluated
+Before I start rambling about Nix, here's some things I evaluated
 before I fell for the Nix approach:
 
  - I was a fan of Gentoo Prefix for a while. Pro: Relies on the huge
@@ -96,17 +96,17 @@ packages. This part is similar to FreeBSD ports and Gentoo/Portage.
 Each package is built and installed into its own directory, which
 contains a hash from *all* the inputs to the package: The downloaded
 tarball, the build script, the C compiler used, the Bash used, and so
-on. So one would have
+on. So one would have::
 
-$NIXSTORE/as8f76234fasdgfas-myprogram-1.0/bin/myprog
-$NIXSTORE/as8f76234fasdgfas-myprogram-1.0/lib/libmyprog.so
+    $NIXSTORE/as8f76234fasdgfas-myprogram-1.0/bin/myprog
+    $NIXSTORE/as8f76234fasdgfas-myprogram-1.0/lib/libmyprog.so
 
 and so on. The big point is that when upgrading to 1.1,
 1.0 is still left in place, and 1.1 simply gets a new hash since
-the downloaded tarball etc. hashes differently:
+the downloaded tarball etc. hashes differently::
 
-$NIXSTORE/234asdfas1234-myprogram-1.1/bin/myprog
-$NIXSTORE/234asdfas1234-myprogram-1.1/lib/libmyprog.so
+    $NIXSTORE/234asdfas1234-myprogram-1.1/bin/myprog
+    $NIXSTORE/234asdfas1234-myprogram-1.1/lib/libmyprog.so
 
 The idea is *not* to support using multiple versions concurrently in
 the same program (which is a bad idea for any software). The big point
@@ -114,7 +114,8 @@ is that this facilitates very quickly switching between branches of
 package sets, atomic upgrades, perfect rollbacks, and so on. Imagine
 creating one branch of your software where everything is built with
 ATLAS, another one where everything is built with GotoBLAS2, and
-atomically switch between them.
+atomically and instantly switch between them. While not so
+useful for production use, this can be *very* useful when debugging.
 
 The "build artifact output directories" are called derivations in
 Nix-speak. To describe a package (or, compute a derivation), one uses
@@ -139,9 +140,11 @@ sources from Git instead of downloading a tarball, pass in the
 tarball isn't magic, it is simply part of the functionality of "stdenv",
 which you can trivially replace with your own.
 
-So, again, if you want your setup to contain two versions of a software,
-e.g., compiled with different Fortran compilers, you can mostly call
-the same function twice while passing in different Fortran compilers.
+So, again, if you want your setup to contain two versions of a
+software, e.g., compiled with different Fortran compilers, you can
+mostly call the same function twice while passing in different Fortran
+compilers.  The results will hash differently and so be installed in
+seperate locations.
 
 You only specify build-time dependencies, which are simply other
 packages passed as arguments to your package-building
