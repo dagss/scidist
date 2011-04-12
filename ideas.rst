@@ -311,10 +311,10 @@ possible.
 Yes, this was vague, more investigation needed. And by all means,
 let's just wrap ``nix-env`` if possible.
 
-Ticket #4: Nix wants its own toolchain
-''''''''''''''''''''''''''''''''''''''
+Ticket #4: nixpkgs wants its own toolchain
+''''''''''''''''''''''''''''''''''''''''''
 
-At least on the Linux platform, Nix takes things to the extreme: In
+At least on the Linux platform, ``nixpkgs`` takes things to the extreme: In
 order to build its own GCC, it even downloads a binary bootstrap
 tarball (with Busybox!), to really ensure that things are the same
 everywhere.
