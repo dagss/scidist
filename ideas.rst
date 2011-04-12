@@ -256,7 +256,7 @@ In release 0.1, the system works entirely by:
    So, we have a canonical way of getting environment variables set up
    for a shell::
 
-       $ source < (/path/to/my/scidist/bin/scidist env)
+       $ source <(/path/to/my/scidist/bin/scidist env)
 
 Building on this, we can start to add polish in the ``scidist`` command.
 
