@@ -324,7 +324,9 @@ segfaults on my Uni's computers...
 
 For our purposes we *really* don't want to be this pedantic.  If
 nothing else, having to build the toolchain is a major marketing
-problem in getting Scidist accepted.
+problem in getting Scidist accepted. Also there's a real problem: For
+GUI components, it is likely a lot more reliable to link with the
+system ``libX`` than to build our own.
 
 However, it would be nice to not loose the integrity features;
 if I build the same Scidist on two Ubuntu 10.04 computers, it'd
