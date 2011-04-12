@@ -247,6 +247,17 @@ In release 0.1, the system works entirely by:
        (cd scidist; git checkout prevrelease)
        bin/scidist build
 
+ - To use a Nix distribution there'll be a convenient command::
+
+       $ bin/scidist env
+       export PATH=/home/dagss/nix/local:$PATH
+       # PYTHONPATH etc. as needed
+
+   So, we have a canonical way of getting environment variables set up
+   for a shell::
+
+       $ source < (/path/to/my/scidist/bin/scidist env)
+
 Building on this, we can start to add polish in the ``scidist`` command.
 
 
@@ -383,3 +394,4 @@ the Nix expressions". This really classifies more as meta-information
 about packages than a part of Nix expressions.
 
 Perhaps Nix has this somewhere as well and I just didn't find it yet.
+
