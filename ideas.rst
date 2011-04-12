@@ -4,9 +4,9 @@ Scidist -- Nix for scientific computing
 Introduction
 ------------
 
-Here's what I want for a scientific build system (or "Scidist", which
-I'll henceforth dub my utopian scientific build/distribution
-system):
+Here's what I want for a scientific software distribution system (or
+"Scidist", which I'll henceforth dub my utopian scientific
+build/distribution system):
 
  - Non-root mode is completely necesarry (and may be the reason a lot
    of the current scientific distributions exist).
