@@ -88,7 +88,7 @@ Read the docs for the details, but here's a quick tour:
 
 Each package is described using a simple file (or small set of files)
 containing a) tarball download link or pointer to VCS repo, b) some
-metadata, d) commands to build it, d) any patches. By seperating the
+metadata, c) commands to build it, d) any patches. By seperating the
 main download from the packaging and keep many packages in the same
 repo, one can work quite efficiently with revision control on a set of
 packages. This part is similar to FreeBSD ports and Gentoo/Portage.
@@ -124,10 +124,12 @@ as a programmatic function. Fortunately, packages are still built
 using Bash commands -- it is only processing package parameters (and
 passing them on to Bash) that gets done in the functional language.
 Of course, one composes a package using other functions, so one could
-support installing an SPKG by writing a mkSagePkgDerivation function
-that takes the spkg and does most of what you need, only leaving you
-to connect configuration parameters with the corresponding Sage
-environment variables.
+support installing an SPKG (for the none sage people, see: 
+http://www.sagemath.org/doc/reference/sage/misc/package.html for a 
+description of what is meant by an SPKG) by writing a 
+mkSagePkgDerivation function that takes the spkg and does most of what
+you need, only leaving you to connect configuration parameters with 
+the corresponding Sage environment variables.
 
 Every package is purely a function of its inputs, and one is strict
 about requiring all inputs that affect the build process to be passed
